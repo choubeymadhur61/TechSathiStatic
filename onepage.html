@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSathi Bhopal | Your Personal IT & Support Partner</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: #333;
+            background-color: #f8f9fa;
+            line-height: 1.6;
+        }
+
+        /* Color Palette */
+        :root {
+            --primary: #0056b3;
+            --secondary: #20c997;
+            --dark: #212529;
+            --light: #ffffff;
+            --accent: #dc3545;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--dark);
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav .logo {
+            color: var(--light);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(33, 37, 41, 0.9)), url('https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--light);
+            padding: 0 20px;
+            margin-top: 50px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            max-width: 700px;
+        }
+
+        .btn {
+            background-color: var(--secondary);
+            color: var(--light);
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            text-transform: uppercase;
+        }
+
+        .btn:hover {
+            background-color: #1aa179;
+            box-shadow: 0 4px 15px rgba(32, 201, 151, 0.4);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 10%;
+            text-align: center;
+            background-color: var(--light);
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .section-subtitle {
+            color: #6c757d;
+            margin-bottom: 50px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: 0.3s;
+            border-top: 4px solid var(--primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            margin: 15px 0;
+            color: var(--dark);
+        }
+
+        /* Feature/Combo Section */
+        .combo-banner {
+            background-color: var(--dark);
+            color: var(--light);
+            padding: 60px 10%;
+            text-align: center;
+        }
+
+        .combo-banner h2 {
+            font-size: 32px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .combo-banner p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 18px;
+        }
+
+        /* Pricing/Retainer Section */
+        .pricing {
+            padding: 80px 10%;
+            text-align: center;
+        }
+
+        .pricing-table {
+            background-color: var(--light);
+            max-width: 400px;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 2px solid var(--secondary);
+        }
+
+        .pricing-header {
+            background-color: var(--primary);
+            color: var(--light);
+            padding: 30px;
+            font-size: 24px;
+        }
+
+        .pricing-price {
+            font-size: 36px;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--dark);
+        }
+
+        .pricing-features {
+            list-style: none;
+            padding: 20px;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .pricing-features li::before {
+            content: "✓ ";
+            color: var(--secondary);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 10%;
+            background-color: #e9ecef;
+            text-align: center;
+        }
+
+        .contact-info {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #6c757d;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            border-top: 1px solid #343a40;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <nav>
+        <div class="logo">Tech<span>Sathi</span></div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#pricing">Plans</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Bhopal's Own On-Call IT Support Partner</h1>
+        <p>System hang ho gaya? Office network down hai? Server issues? Don't worry, aapka TechSathi bas ek call ki doori par hai. We manage your IT setup so you can focus on your business.</p>
+        <a href="#contact" class="btn">Get Immediate Support</a>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <h2 class="section-title">Humari Services</h2>
+        <p class="section-subtitle">Chhoti dukaan ho ya bada office, hum har tareeqe ke IT problems ka perfect solution dete hain.</p>
+        
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Desktop & Laptop Support</h3>
+                <p>Windows OS installation, software troubleshooting, speed optimization, and virus cleaning to keep your systems fast.</p>
+            </div>
+            <div class="service-card">
+                <h3>Office Networking Setup</h3>
+                <p>LAN cabling, Wi-Fi router setup, switch configuration, and internet connection sharing troubleshooting.</p>
+            </div>
+            <div class="service-card">
+                <h3>Server & Identity Management</h3>
+                <p>Active Directory controls, User account creation, printer sharing, and backup scheduling for critical business data.</p>
+            </div>
+            <div class="service-card">
+                <h3>Peripherals & Hardware Support</h3>
+                <p>Biometric device setup, printer & scanner installations, and routine IT inventory maintenance.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mega Combo Entertainment Hook (As discussed) -->
+    <section class="combo-banner">
+        <h2>"Ticket Raise Kiya Kya?"</h2>
+        <p>IT support ke corporate horrors ko dekhna pasand hai? Humare funny tech videos aur relatable reels dekhne ke liye social media par follow karein! Hum kaam serious karte hain aur content mazedaar.</p>
+        <p><strong>Follow Content Channel: @BewaqtBhoot / @TechSathiBhopal</strong></p>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <h2 class="section-title">Sasta aur Affordable Retainer Plan</h2>
+        <p class="section-subtitle">Bina kisi permanent employee ki salary ke, pure mahine ka full IT support.</p>
+        
+        <div class="pricing-table">
+            <div class="pricing-header">Sathi Retainer Plan</div>
+            <div class="pricing-price">₹2,499 / <small>Month</small></div>
+            <ul class="pricing-features">
+                <li>On-Call & Emergency Remote Desktop Support</li>
+                <li>Priority Weekend Physical Site Visits</li>
+                <li>Data Backup Configuration Guidance</li>
+                <li>Network & Wi-Fi Health Checkup</li>
+                <li>Software License Management Support</li>
+            </ul>
+            <div style="padding: 25px;">
+                <a href="#contact" class="btn">Subscribe Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2 class="section-title">Connect with TechSathi Bhopal</h2>
+        <p class="section-subtitle" style="margin-bottom: 20px;">System down hone ka intezar mat kijiye, aaj hi humse judiye.</p>
+        <div class="contact-info">
+            📞 Call/WhatsApp: +91 XXXXX XXXXX<br>
+            ✉️ Email: techsathibhopal@gmail.com
+        </div>
+        <p style="font-size: 14px; color: #6c757d;">Available for Remote Support Weekdays & Physical Site Visits on Weekends.</p>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TechSathi Bhopal. All Rights Reserved. | Managed by Madhur Choubey</p>
+    </footer>
+
+</body>
+</html>
